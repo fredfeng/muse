@@ -244,10 +244,7 @@ This material is based on research sponsored by the Air Force Research Laborator
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \headerbox{Our approach by example}{name=speed,column=2,span=2,row=0,below=results,above=references}{
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\hspace*{-0.1in}
- \includegraphics[height=16em]{images/genome.png}
- \hspace*{0.1in}
- \includegraphics[height=16em]{images/obfuscate.png}
+  \includegraphics[height=19em,width=42em]{images/example.png}
   }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \headerbox{Android Background}{name=method,column=0,below=problem,bottomaligned=speed}{
@@ -266,14 +263,14 @@ background even if windows are switched;
   }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \headerbox{Methodology}{name=background model,column=1,below=problem,bottomaligned=speed}{
-   \noindent{\centering\includegraphics[width=0.25\linewidth]{images/taiji.png}\\}
+   \noindent{\centering\includegraphics[width=0.45\linewidth]{images/pintu.jpg}\\}
  
- We combine the advantages of taint analyses and signature-based techniques and overcome their disadvantages.
+ We combine the advantages of both statistical model and SMT-based program Synthesis: 
    \begin{enumerate}\compresslist
-   \item Represent a corpus of malware through semantic signatures in terms of data-flow and control flow properties.
-   \item We extract the data-flow properties of an app by performing taint analyses;
-   \item We extract the control-flow properties of an app by constructing its Inter-Component Call Graph(ICCG), which is a high-level representation for Android apps.
-   \item Decide if the extracted control and data-flow properties of the app match any malware signatures in database.
+   \item Using HMM to learn algorithmic snippets from large corpus;
+   \item Build a model to rank the candidates based on TF-IDF of natural language comments and similarity between function signatures.  
+   \item Using type-directed component-based Synthesis to generate adaptor code for the candidate Algorithm; 
+   \item Using SMT-based to find the solution which minimizes the cost of Synthesis.
    \end{enumerate}
  
   }
