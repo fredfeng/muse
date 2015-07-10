@@ -164,17 +164,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \headerbox{Problem}{name=problem,column=0,row=0}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- The Android platform 
-is a growing target for  mobile malware.
-Today, many of the malicious applications that afflict  Android users  exploit
-the private and monetized information
-stored in a user's smartphone. 
-
-
-   Two major existing approaches and their disadvantages. 
+We are designing a system that
+automatically synthesizes algorithmic program from vast repositories based on partial program with comments in natural language.
+   Specifically, our system tries to solve the following problems:
    \begin{enumerate}\compresslist
-      \item Taint analyses: Could generate a lot of false positives without context;
-      \item Signature-based malware detectors: Classify malware based on sequences of low-level instructions. Compromised by common obfuscations.
+      \item Searching algorithmic code snippets from large corpus;
+      \item Generating adaptor code for candidate algorithms and the goal is to minimize the cost of synthesis efforts. 
+      \item Checking correctness of synthesized components based on input-output examples.
    \end{enumerate}
    \vspace{0.3em}
  }
@@ -246,7 +242,7 @@ This material is based on research sponsored by the Air Force Research Laborator
    \vspace{0.3em}
   }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Results}{name=speed,column=2,span=2,row=0,below=results,above=references}{
+\headerbox{Our approach by example}{name=speed,column=2,span=2,row=0,below=results,above=references}{
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \hspace*{-0.1in}
  \includegraphics[height=16em]{images/genome.png}
