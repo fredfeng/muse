@@ -178,18 +178,13 @@ automatically synthesizes algorithmic program from vast repositories based on pa
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \headerbox{Contributions}{name=contribution,column=1,row=0,bottomaligned=problem}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   We design a high-level signature language for describing semantic characteristics of Android malware families. Such as:
-   \vspace{-0.4em}
    \begin{enumerate}\compresslist
-   \item Control-flow properties
-   \item Data-flow properties
-   \end{enumerate}
-   
-   We perform powerful static analysis for deciding if a given app matches signature of a malware family. In order to detect malware precisely,   \vspace{-0.4em}
-
-      \begin{enumerate}\compresslist
-   \item We use a hybrid pointer analysis for the taint analyses;
-   \item We build a precise Inter-component Call graph, which is our own high-level abstraction for Android apps.
+   \item We are designing a statistical model to extract relevant code snippets from large corpus;
+   \item Searching similar algorithms based on comments in natural language and returning the topmost relevant candidates by
+   designing a set of domain specific features;
+   \item Synthesizing adaptor code for a given candidate with minimum efforts;
+   \item We are implementing the above ideas in our system called $Hunter$ and we evaluate our system on 50 common algorithms from Wikipedia 
+   and Stackoverflow.
    \end{enumerate}
    \vspace{0.3em}
   }
@@ -209,13 +204,15 @@ automatically synthesizes algorithmic program from vast repositories based on pa
       \begin{thebibliography}{1}\itemsep=-0.01em
       \setlength{\baselineskip}{0.4em}
       \bibitem{amberg11:graphtrack}
-        Y Feng, S Anand, I Dillig, A Aiken.
-        \newblock Apposcopy: Semantics-based detection of android malware through static analysis
-        \newblock In {\em SIGSOFT FSE,2014}
+        Perelman, Daniel, et al. 
+        \newblock 
+        Type-directed completion of partial expressions
+        \newblock In {\em PLDI,2012}
       \bibitem{awf:tracking}
-        Y Feng, S Anand, I Dillig, A Aiken.
-        \newblock Apposcopy: automated detection of Android malware (invited talk).
-        \newblock In {\em DeMobile 2014}
+        Feser, John, Swarat Chaudhuri, and Isil Dillig.
+        \newblock 
+        Synthesizing Data Structure Transformations from Input-Output Examples.
+        \newblock In {\em PLDI 2015}
       \end{thebibliography}
    \vspace{0.3em}
   }
@@ -223,14 +220,9 @@ automatically synthesizes algorithmic program from vast repositories based on pa
   \headerbox{Future Work}{name=questions,column=1,span=2,aligned=references,above=bottom}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \begin{multicols}{2}
-    
-    We will develop
-techniques to improve the efficiency and precision of Apposcopy's static
-analyses. We also plan to develop techniques to automatically
-de-obfuscate apps to enhance Apposcopy's resilience to some types of
-obfuscations.  Finally, we plan to
-develop techniques to automatically learn malware signatures from
-a  set of apps labeled with their corresponding malware family (or as benign).
+We plan to continue our current work and integrate it into Eclipse IDE to reduce the workload 
+of daily program task; We also plan to generate program specification for large corpus based on comments in natural language.
+Finally, currently our techniques only support Java program and we plan to extend our framework to support other languages like C and C++.
 
   \end{multicols}
    \vspace{0.3em}
@@ -247,17 +239,19 @@ This material is based on research sponsored by the Air Force Research Laborator
   \includegraphics[height=19em,width=42em]{images/example.png}
   }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Android Background}{name=method,column=0,below=problem,bottomaligned=speed}{
+  \headerbox{Background}{name=method,column=0,below=problem,bottomaligned=speed}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   \noindent{\centering\includegraphics[width=1\linewidth]{images/icc.png}\\}
-There are four types of components in Android and they communicate with each other through the \emph{Intent} object.
-   \vspace{-0.3em}
    \begin{enumerate}\compresslist
-   \item Activities form the basic user interface;
-   \item Service components run in the
-background even if windows are switched;
-   \item BroadcastReceiver components react asynchronously to messages from other apps;
-   \item ContentProviders store data for the app.
+   \item Hidden Markov Model. Here, the observe states could be the program invocation sequences in large corpus and 
+   the hidden states correspond to algorithmic snippets which we are interested in. 
+   \item Similarity metrics. Currently we mainly consider the similarity of comments in natural language and the signature
+   of the method.
+   \item Type conversion cost. In our context, the type conversion cost is the number of statements we need to generate 
+   in order to convert a variable $v$ of type $T_1$ to a variable $u$ of type $T_2$.  
+   In most cases, given a method signature 
+   from the user, we can not find an exact matching from large corpus,
+   thus we need to generate the adaptor code for possible candidates. 
+   \item Maximum bipartite matching with lowest cost solving by an off-the-shelf SMT solver. 
    \end{enumerate}
    \vspace{0.3em}
   }
@@ -269,8 +263,8 @@ background even if windows are switched;
    \begin{enumerate}\compresslist
    \item Using HMM to learn algorithmic snippets from large corpus;
    \item Build a model to rank the candidates based on TF-IDF of natural language comments and similarity between function signatures.  
-   \item Using type-directed component-based Synthesis to generate adaptor code for the candidate Algorithm; 
-   \item Using SMT-based to find the solution which minimizes the cost of Synthesis.
+   \item Using type-directed component-based Synthesis to generate adaptor code for the candidate algorithms; 
+   \item Using an SMT-based encoding scheme to yield a solution which minimizes the cost of synthesis.
    \end{enumerate}
  
   }
