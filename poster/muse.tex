@@ -173,19 +173,18 @@
  \item {\bf \emph{Context-driven:}} {\sc CodeHunter} uses \emph{context} of the program to be synthesized to identify pertinent code snippets.  We interpret \emph{program context} in a broad way: it includes method signature, comments, test cases, program history \ldots
  \end{enumerate}
    \vspace{0.3em}
+  \includegraphics[scale=0.7]{images/hun.jpg}
  }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Contributions}{name=contribution,column=1,row=0,bottomaligned=problem}{
+  \headerbox{Challenges}{name=contribution,column=1,row=0}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   \begin{enumerate}\compresslist
-   \item We are designing a statistical model to extract relevant code snippets from large corpus;
-   \item Searching similar algorithms based on comments in natural language and returning the topmost relevant candidates by
-   designing a set of domain specific features;
-   \item Synthesizing adaptor code for a given candidate with minimum efforts;
-   \item We are implementing the above ideas in our system called $Hunter$ and we evaluate our system on 50 common algorithms from Wikipedia 
-   and Stackoverflow.
-   \end{enumerate}
+   \begin{itemize}\compresslist
+   \item {\bf \emph{Context abstraction:}} Identify a good abstraction of program context to drive database queries for discovering relevant components
+   \item {\bf \emph{Interface alignment:}} Once we identify relevant component, figure out correspondence between this component's interface and existing context elements
+   \item {\bf \emph{Adaptor code synthesis:}} We need to synthesize adaptor code to integrate component into program context 
+   \end{itemize}
+
    \vspace{0.3em}
   }
 
@@ -239,17 +238,17 @@ This material is based on research sponsored by the Air Force Research Laborator
   \includegraphics[height=19em,width=42em]{images/example.png}
   }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Challenges}{name=method,column=0,below=problem,bottomaligned=speed}{
+%  \headerbox{Challenges}{name=method,column=0,below=problem,bottomaligned=speed}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   \begin{itemize}\compresslist
-   \item {\bf \emph{Context abstraction:}} Identify a good abstraction of program context to drive database queries for discovering relevant components
-   \item {\bf \emph{Interface alignment:}} Once we identify relevant component, figure out correspondence between this component's interface and existing context elements
-   \item {\bf \emph{Adaptor code synthesis:}} We need to synthesize adaptor code to integrate component into program context 
-   \end{itemize}
-   \vspace{0.3em}
-  }
+%   \begin{itemize}\compresslist
+%   \item {\bf \emph{Context abstraction:}} Identify a good abstraction of program context to drive database queries for discovering relevant components
+%   \item {\bf \emph{Interface alignment:}} Once we identify relevant component, figure out correspondence between this component's interface and existing context elements
+%   \item {\bf \emph{Adaptor code synthesis:}} We need to synthesize adaptor code to integrate component into program context 
+%   \end{itemize}
+%   \vspace{0.3em}
+%  }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Our Solution}{name=background model,column=1,below=problem,bottomaligned=speed}{
+  \headerbox{Our Solution}{name=background model,column=1,below=contribution,above=questions}{
    \noindent{\centering\includegraphics[width=0.45\linewidth]{images/pintu.jpg}\\}
  We combine the advantages of statistical and SMT-based techniques:
    \begin{enumerate}\itemsep=0.1cm
