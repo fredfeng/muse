@@ -138,7 +138,7 @@
   % Eye Catcher
   {\includegraphics[height=6.5em]{images/ut.png}} 
   % Title
-  {\bf\textsc{Hunter: Fuzzy Component-based Algorithm Synthesis from large corpus}\vspace{0.1em}}
+  {\bf\textsc{CodeHunter: Context-Driven Component-Based  Synthesis from Big Data}\vspace{0.1em}}
   % Authors
   {\textsc{\{ Yu Feng, Yuepeng Wang, Arati Kaushik, Isil Dillig \}@UT Austin}}
   % University logo
@@ -162,16 +162,16 @@
       \tikz{\useasboundingbox (-0.2em,-0.32em) rectangle(0.2em,0.32em); \draw[draw=black,fill=lightblue,line width=0.03em] (0,0) circle(0.18em);}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Problem}{name=problem,column=0,row=0}{
+  \headerbox{Objective and Goals}{name=problem,column=0,row=0}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-We are designing a system that
-automatically synthesizes algorithmic program from vast repositories based on partial program with comments in natural language.
-   Specifically, our system tries to solve the following problems:
-   \begin{enumerate}\compresslist
-      \item Searching algorithmic code snippets from large corpus;
-      \item Generating adaptor code for candidate algorithms and the goal is to minimize the cost of synthesis efforts. 
-      \item Checking correctness of synthesized components based on input-output examples.
-   \end{enumerate}
+ {\sc CodeHunter} is a system for component-based program synthesis in Java.
+ Unlike previous component-based program synthesis approaches, our approach is:
+ 
+ \begin{enumerate}
+ \item {\bf \emph{Data-driven:}} Rather than using a fixed set of components, 
+ {\sc CodeHunter} \emph{dynamically} discovers relevant components in large code corpora.
+ \item {\bf \emph{Context-driven:}} {\sc CodeHunter} uses \emph{context} of the program to be synthesized to identify pertinent code snippets.  We interpret \emph{program context} in a broad way: it includes method signature, comments, test cases, program history \ldots
+ \end{enumerate}
    \vspace{0.3em}
  }
 
@@ -239,32 +239,23 @@ This material is based on research sponsored by the Air Force Research Laborator
   \includegraphics[height=19em,width=42em]{images/example.png}
   }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Background}{name=method,column=0,below=problem,bottomaligned=speed}{
+  \headerbox{Challenges}{name=method,column=0,below=problem,bottomaligned=speed}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   \begin{enumerate}\compresslist
-   \item Hidden Markov Model. Here, the observe states could be the program invocation sequences in large corpus and 
-   the hidden states correspond to algorithmic snippets which we are interested in. 
-   \item Similarity metrics. Currently we mainly consider the similarity of comments in natural language and the signature
-   of the method.
-   \item Type conversion cost. In our context, the type conversion cost is the number of statements we need to generate 
-   in order to convert a variable $v$ of type $T_1$ to a variable $u$ of type $T_2$.  
-   In most cases, given a method signature 
-   from the user, we can not find an exact matching from large corpus,
-   thus we need to generate the adaptor code for possible candidates. 
-   \item Maximum bipartite matching with lowest cost solving by an off-the-shelf SMT solver. 
-   \end{enumerate}
+   \begin{itemize}\compresslist
+   \item {\bf \emph{Context abstraction:}} Identify a good abstraction of program context to drive database queries for discovering relevant components
+   \item {\bf \emph{Interface alignment:}} Once we identify relevant component, figure out correspondence between this component's interface and existing context elements
+   \item {\bf \emph{Adaptor code synthesis:}} We need to synthesize adaptor code to integrate component into program context 
+   \end{itemize}
    \vspace{0.3em}
   }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Methodology}{name=background model,column=1,below=problem,bottomaligned=speed}{
+  \headerbox{Our Solution}{name=background model,column=1,below=problem,bottomaligned=speed}{
    \noindent{\centering\includegraphics[width=0.45\linewidth]{images/pintu.jpg}\\}
- 
- We combine the advantages of both statistical model and SMT-based program Synthesis: 
-   \begin{enumerate}\compresslist
-   \item Using HMM to learn algorithmic snippets from large corpus;
-   \item Build a model to rank the candidates based on TF-IDF of natural language comments and similarity between function signatures.  
-   \item Using type-directed component-based Synthesis to generate adaptor code for the candidate algorithms; 
-   \item Using an SMT-based encoding scheme to yield a solution which minimizes the cost of synthesis.
+ We combine the advantages of statistical and SMT-based techniques:
+   \begin{enumerate}\itemsep=0.1cm
+   \item Use Hidden Markov Models to learn a good abstraction of program context to drive database queries
+   \item Formulate interface assignment as a \emph{satisfiability modulo the theory of costs} problem (i.e., find maximum cost matching that satisfies a set of integrity constraints)
+   \item Use type-directed synthesis to generate adaptor code 
    \end{enumerate}
  
   }
