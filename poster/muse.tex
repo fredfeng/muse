@@ -164,6 +164,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \headerbox{Objective and Goals}{name=problem,column=0,row=0}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \noindent{\centering\includegraphics[scale=0.2]{images/code-hunter.pdf}\\}
+   \vspace{1em}
  {\sc CodeHunter} is a system for component-based program synthesis in Java.
  Unlike previous component-based program synthesis approaches, our approach is:
  
@@ -173,7 +175,6 @@
  \item {\bf \emph{Context-driven:}} {\sc CodeHunter} uses \emph{context} of the program to be synthesized to identify pertinent code snippets.  We interpret \emph{program context} in a broad way: it includes method signature, comments, test cases, program history \ldots
  \end{enumerate}
    \vspace{0.3em}
-  \includegraphics[scale=0.45]{images/code-hunter.pdf}
  }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -195,7 +196,7 @@
   \includegraphics[height=22em,width=44em]{images/hunter.pdf}
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{References}{name=references,column=0,above=bottom}{
+  \headerbox{References}{name=references,column=1,above=bottom}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \smaller
     \bibliographystyle{ieee}
@@ -216,7 +217,7 @@
    \vspace{0.3em}
   }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Future Work}{name=questions,column=1,span=2,aligned=references,above=bottom}{
+  \headerbox{Future Work}{name=future,column=0,below=problem}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \begin{multicols}{2}
 We plan to continue our current work and integrate it into Eclipse IDE to reduce the workload 
@@ -227,15 +228,15 @@ Finally, currently our techniques only support Java program and we plan to exten
    \vspace{0.3em}
   }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Acknowledgments}{name=references,column=3,aligned=references,above=bottom}{
+  \headerbox{Acknowledgments}{name=ack,column=0,above=bottom,below=future}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 This material is based on research sponsored by the Air Force Research Laboratory, under agreement number FA8750-14-2-0270.
    \vspace{0.3em}
   }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Our approach by example}{name=speed,column=2,span=2,row=0,below=results,above=references}{
+\headerbox{Our approach by example}{name=speed,column=2,span=2,row=0,below=results}{
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \includegraphics[height=19em,width=42em]{images/example.png}
+  \includegraphics[height=28em,width=44em]{images/example.png}
   }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  \headerbox{Challenges}{name=method,column=0,below=problem,bottomaligned=speed}{
@@ -248,7 +249,7 @@ This material is based on research sponsored by the Air Force Research Laborator
 %   \vspace{0.3em}
 %  }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Our Solution}{name=background model,column=1,below=contribution,above=questions}{
+  \headerbox{Our Solution}{name=solution,column=1,below=contribution,above=references}{
    \noindent{\centering\includegraphics[width=0.45\linewidth]{images/pintu.jpg}\\}
  We combine the advantages of statistical and SMT-based techniques:
    \begin{enumerate}\itemsep=0.1cm
