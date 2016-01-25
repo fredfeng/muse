@@ -1,9 +1,9 @@
-TARGETS = main.pdf
+TARGETS = main
 
-all: $(TARGETS)
+all: compile
 
-%.pdf: %.tex Makefile
-	pdflatex --enable-write18 $< &&	pdflatex $< && pdflatex $<
+compile:
+	pdflatex --enable-write18 $(TARGETS) &&	pdflatex $(TARGETS) && pdflatex $(TARGETS)
 
 clean:
 	  rm -f *.aux *.bbl *.blg *.log $(TARGETS)
