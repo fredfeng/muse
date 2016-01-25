@@ -1,4 +1,4 @@
-TARGETS = sypet.pdf
+TARGETS = main.pdf
 
 all: $(TARGETS)
 

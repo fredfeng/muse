@@ -161,105 +161,22 @@
     \newcommand{\colouredcircle}{%
       \tikz{\useasboundingbox (-0.2em,-0.32em) rectangle(0.2em,0.32em); \draw[draw=black,fill=lightblue,line width=0.03em] (0,0) circle(0.18em);}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Objective and Goals}{name=problem,column=0,row=0}{
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   \noindent{\centering\includegraphics[scale=0.2]{images/code-hunter.pdf}\\}
-   \vspace{1em}
- {\sc CodeHunter} is a system for component-based program synthesis in Java.
- Unlike previous component-based program synthesis approaches, our approach is:
- 
- \begin{enumerate}
- \item {\bf \emph{Data-driven:}} Rather than using a fixed set of components, 
- {\sc CodeHunter} \emph{dynamically} discovers relevant components in large code corpora.
- \item {\bf \emph{Context-driven:}} {\sc CodeHunter} uses \emph{context} of the program to be synthesized to identify pertinent code snippets.  We interpret \emph{program context} in a broad way: it includes method signature, comments, test cases, program history \ldots
- \end{enumerate}
-   \vspace{0.3em}
- }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Challenges}{name=contribution,column=1,row=0}{
+All boxes
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   \begin{itemize}\compresslist
-   \item {\bf \emph{Context abstraction:}} Identify a good abstraction of program context to drive database queries for discovering relevant components
-   \item {\bf \emph{Interface alignment:}} Once we identify relevant component, figure out correspondence between this component's interface and existing context elements
-   \item {\bf \emph{Adaptor code synthesis:}} We need to synthesize adaptor code to integrate component into program context 
-   \end{itemize}
-
-   \vspace{0.3em}
-  }
-
+\input{objective}
+\input{overview}
+\input{alignment}
+\input{search}
+\input{example}
+\input{result}
+\input{acknowledgment}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Overview of our approach}{name=results,column=2,span=2,row=0}{
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-  \includegraphics[height=22em,width=44em]{images/hunter.pdf}
-}
+All boxes end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{References}{name=references,column=1,above=bottom}{
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \smaller
-    \bibliographystyle{ieee}
-    \renewcommand{\section}[2]{\vskip 0.05em}
-      \begin{thebibliography}{1}\itemsep=-0.01em
-      \setlength{\baselineskip}{0.4em}
-      \bibitem{amberg11:graphtrack}
-        Perelman, Daniel, et al. 
-        \newblock 
-        Type-directed completion of partial expressions
-        \newblock In {\em PLDI,2012}
-      \bibitem{awf:tracking}
-        Feser, John, Swarat Chaudhuri, and Isil Dillig.
-        \newblock 
-        Synthesizing Data Structure Transformations from Input-Output Examples.
-        \newblock In {\em PLDI 2015}
-      \end{thebibliography}
-   \vspace{0.3em}
-  }
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Future Work}{name=future,column=0,below=problem}{
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \begin{multicols}{2}
-We plan to continue our current work and integrate it into Eclipse IDE to reduce the workload 
-of daily program task; We also plan to generate program specification for large corpus based on comments in natural language.
-Finally, currently our techniques only support Java program and we plan to extend our framework to support other languages like C and C++.
-
-  \end{multicols}
-   \vspace{0.3em}
-  }
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Acknowledgments}{name=ack,column=0,above=bottom,below=future}{
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-This material is based on research sponsored by the Air Force Research Laboratory, under agreement number FA8750-14-2-0270.
-   \vspace{0.3em}
-  }
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Our approach by example}{name=speed,column=2,span=2,row=0,below=results}{
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \includegraphics[height=28em,width=44em]{images/example.png}
-  }
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%  \headerbox{Challenges}{name=method,column=0,below=problem,bottomaligned=speed}{
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%   \begin{itemize}\compresslist
-%   \item {\bf \emph{Context abstraction:}} Identify a good abstraction of program context to drive database queries for discovering relevant components
-%   \item {\bf \emph{Interface alignment:}} Once we identify relevant component, figure out correspondence between this component's interface and existing context elements
-%   \item {\bf \emph{Adaptor code synthesis:}} We need to synthesize adaptor code to integrate component into program context 
-%   \end{itemize}
-%   \vspace{0.3em}
-%  }
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Our Solution}{name=solution,column=1,below=contribution,above=references}{
-   \noindent{\centering\includegraphics[width=0.45\linewidth]{images/pintu.jpg}\\}
- We combine the advantages of statistical and SMT-based techniques:
-   \begin{enumerate}\itemsep=0.1cm
-   \item Use Hidden Markov Models to learn a good abstraction of program context to drive database queries
-   \item Formulate interface assignment as a \emph{satisfiability modulo the theory of costs} problem (i.e., find maximum cost matching that satisfies a set of integrity constraints)
-   \item Use type-directed synthesis to generate adaptor code 
-   \end{enumerate}
- 
-  }
 
 \end{poster}
 
 \end{document}
+
