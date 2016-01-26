@@ -1,12 +1,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Search}{name=search,column=0,row=1,below=objective}{
+\headerbox{Search}{name=search,column=3,row=0}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Candidates are ranked using the metrics:
 \vspace{-0.1in}
 \begin{itemize}
-\item Jaccard similarity coefficient for {\it types of variables}
-\item Natural language terms (tf-idf weighting, edit distance) for {\it method signature} and {\it comments}
+\item Jaccard similarity coefficient for {\it types} %of variables}
+%\item Natural language terms (tf-idf weighting, edit distance) for {\it method signature} and {\it comments}
+\item Tf-idf weighting, edit distance for {\it method signature} and {\it comments}
 \end{itemize}
 
 
