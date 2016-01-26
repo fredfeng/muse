@@ -1,11 +1,11 @@
+\newcommand{\comps}{\Lambda}
+\newcommand{\pn}{\mathcal{N}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Solution}{name=contribution,column=3,row=0}{
+  \headerbox{Synthesis via Petri Net}{name=contribution,column=3,row=0}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   \begin{itemize}\compresslist
-   \item {\bf \emph{Context abstraction:}} Identify a good abstraction of program context to drive database queries for discovering relevant components
-   \item {\bf \emph{Interface alignment:}} Once we identify relevant component, figure out correspondence between this component's interface and existing context elements
-   \item {\bf \emph{Adaptor code synthesis:}} We need to synthesize adaptor code to integrate component into program context 
-   \end{itemize}
+   \noindent{\centering\includegraphics[scale=0.45]{images/net.pdf}\\}
+ {\sc SyPet} first constructs a Petri net $\pn$ using \emph{signatures} of components in $\comps$.
+ where the places of $\pn$ correspond to types and transitions correspond to components. Then it performs reachability analysis to find $\pn$'s accepting runs. For instance, an accepting run $r$ is  \code{new LaguerreSolver}, \code{getCoefficients}, \code{solveAllComplex}. 
 
    \vspace{0.3em}
   }
