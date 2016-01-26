@@ -2,14 +2,22 @@
 \headerbox{Search}{name=search,column=0,row=1,below=objective}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\includegraphics[scale=0.3]{images/search.pdf}
+Candidates are ranked using the metrics:
+\vspace{-0.1in}
+\begin{itemize}
+\item Jaccard similarity coefficient for {\it types of variables}
+\item Natural language terms (tf-idf weighting, edit distance) for {\it method signature} and {\it comments}
+\end{itemize}
+
+\begin{center}
+\includegraphics[scale=0.33]{images/search.pdf}
+\end{center}
 
 Corpus statistics:
-\begin{itemize}
+\begin{compactitem}
 \item \# Projects: 66,341
 \item \# Java Files: 5,129,942
 \item \# Classes: 5,896,806
 \item \# Methods: 51,690,524
-\end{itemize}
+\end{compactitem}
 }
-
