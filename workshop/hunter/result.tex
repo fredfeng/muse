@@ -27,8 +27,8 @@
         ymajorgrids = true,
         ylabel = {Time (s)},
         ylabel style={yshift=-7mm},
-        symbolic x coords={LCS,Bresenham,MatrixMultiplication,RemoveDuplicates,MatrixCrossProduct,VectorDotProduct,PointDistance,Palindrome,NthPrime,LineSlope},
-        x tick label style={rotate=90,anchor=east},
+        symbolic x coords={LCS,Bresenham,MatrixMult,Duplicates,CrossProduct,DotProduct,Distance,Palindrome,NthPrime,Slope},
+        x tick label style={rotate=45,anchor=east},
         xtick = data,
         scaled y ticks = false,
         enlarge x limits=0.25,
@@ -37,7 +37,7 @@
 
     \hspace*{-2mm}
         \addplot[style={bblue,fill=bblue,mark=none}]
-            coordinates {(LCS,10)(Bresenham,55)(MatrixMultiplication,16)(RemoveDuplicates,19)(MatrixCrossProduct,9)(VectorDotProduct,7)(PointDistance,14)(Palindrome,10)(NthPrime,18)(LineSlope,7)};
+            coordinates {(LCS,10)(Bresenham,55)(MatrixMult,16)(Duplicates,19)(CrossProduct,9)(DotProduct,7)(Distance,14)(Palindrome,10)(NthPrime,18)(Slope,7)};
 
         %\legend{InSynth,CodeHint,SyPet}
     \end{axis}
