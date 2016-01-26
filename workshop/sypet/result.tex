@@ -1,7 +1,73 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \headerbox{Results}{name=solution,column=3,below=contribution,above=references}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  Bar graph.
+    
+\definecolor{bblue}{HTML}{4F81BD}
+\definecolor{rred}{HTML}{C0504D}
+\definecolor{ggreen}{HTML}{9BBB59}
+\definecolor{ppurple}{HTML}{9F4C7C}
+
+  Java libraries:
+  \begin{compactitem}
+    \item Math: \code{apache.commons.math}
+    \item Geometry: \code{awt.geom}
+    \item Time: \code{joda}
+    \item XML: \code{jsoup, wc3.dom, javax.xml}
+  \end{compactitem}
+  \vspace{0.1in}
+
+\begin{tikzpicture}
+    \begin{axis}[
+        width  = 8cm,
+        height = 8cm,
+        y=0.4cm,
+        x=1.4cm,
+        major x tick style = transparent,
+        ybar=2*\pgflinewidth,
+        bar width=11pt,
+        ymajorgrids = true,
+        ylabel = {Benchmarks},
+        ylabel style={yshift=-7mm},
+        symbolic x coords={Math,Geom,Time,XML},
+        xtick = data,
+        scaled y ticks = false,
+        enlarge x limits=0.25,
+        ymin=0,
+        legend cell align=left,
+        legend style={
+                at={(0.5,1.08)},
+                legend columns=-1,
+                anchor=north,
+        %        column sep=1ex
+        }
+    ]
+    \hspace*{-2mm}
+        \addplot[style={bblue,fill=bblue,mark=none}]
+            coordinates {(Math,1)(Geom,0)(Time,0)(XML,0)};
+
+        \addplot[style={ggreen,fill=ggreen,mark=none}]
+             coordinates {(Math,1)(Geom,3)(Time,6)(XML,3)};
+
+        \addplot[style={rred,fill=rred,mark=none}]
+             coordinates {(Math,9)(Geom,6)(Time,7)(XML,8)};
+
+        %\addplot[style={ppurple,fill=ppurple,mark=none}]
+        %     coordinates {(EgyptHD,0.74) (Hover,1.07) (Navi,1.23)};
+
+        \legend{InSynth,CodeHint,SyPet}
+    \end{axis}
+
+ 
+\end{tikzpicture}
+
+\vspace{0.08in}
+   SyPet can handle {\it large} libraries:
+    \begin{compactitem}
+    \item 49-246 classes (218 average)
+    \item 725-4105 methods (2080 average)
+    \end{compactitem}
+
+
    \vspace{0.3em}
   }
 
