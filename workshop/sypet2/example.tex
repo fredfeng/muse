@@ -1,0 +1,39 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headerbox{Example}{name=speed,column=0,span=1,row=0,below=results}{
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\Large\noindent Synthesize an HTTP ``POST'' request with SyPet:
+
+{\normalsize
+~\\
+\noindent\texttt{import org.apache.http.*;}\\
+
+\noindent\texttt{String \textbf{sendHttpPost}(HttpPost \textcolor{purple}{\textbf{uri}}, String \textcolor{purple}{\textbf{body}})\{}\\
+
+\vspace{-7mm}
+\begin{center}
+\includegraphics[scale=0.3]{images/click.png}
+\end{center}
+\vspace{-3mm}
+
+  \noindent\hspace*{0.2em}\texttt{StringEntity \textcolor{purple}{\textbf{v1}} = }\\
+  \hspace*{0.5em}\texttt{new StringEntity(\textcolor{purple}{\textbf{body}});}\\
+  \hspace*{0.2em}\texttt{HttpEntity \textcolor{purple}{\textbf{v2}} = \textcolor{purple}{\textbf{v1}};}\\
+  \hspace*{0.2em}\texttt{HttpEntityEnclosingRequest \textcolor{purple}{\textbf{v3}} =}\\
+  \hspace*{0.5em}\texttt{\textcolor{purple}{\textbf{uri}};}\\
+  \hspace*{0.2em}\texttt{\textcolor{purple}{\textbf{v3}}.setEntity(\textcolor{purple}{\textbf{v2}});}\\
+  \hspace*{0.2em}\texttt{HttpUriRequest \textcolor{purple}{\textbf{v4}} = \textcolor{purple}{\textbf{v3}};}\\
+  \hspace*{0.2em}\texttt{CloseableHttpClient \textcolor{purple}{\textbf{v5}} =}\\ 
+  \hspace*{0.5em}\texttt{HttpClients.createDefault();}\\
+  \hspace*{0.2em}\texttt{HttpResponse \textcolor{purple}{\textbf{v6}} = \textcolor{purple}{\textbf{v5}}.execute(\textcolor{purple}{\textbf{v4}});}\\
+  \hspace*{0.2em}\texttt{HttpEntity \textcolor{purple}{\textbf{v7}} = \textcolor{purple}{\textbf{v6}}.getEntity();}\\
+  \hspace*{0.2em}\texttt{InputStream \textcolor{purple}{\textbf{v8}} = \textcolor{purple}{\textbf{v7}}.getContent();}\\
+  \hspace*{0.2em}\texttt{String \textcolor{purple}{\textbf{v9}} = IOUtils.toString(\textcolor{purple}{\textbf{v8}});}\\
+  \hspace*{0.2em}\texttt{return \textcolor{purple}{\textbf{v9}};}\\
+\}
+
+}
+
+ 
+ }
+
